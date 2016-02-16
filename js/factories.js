@@ -1,5 +1,4 @@
 angular.module('app')
-
 	.factory('Password', function() {
 
 		function getStrength(pass) {
@@ -32,7 +31,6 @@ angular.module('app')
 
 	    return parseInt(score);
 		}
-
 
 		return {
 			getStrength: function(pass) {
