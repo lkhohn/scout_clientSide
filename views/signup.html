@@ -172,30 +172,25 @@
 
 
 
-      <!-- <div class="form-group">
-        <label for="pw2">confirm password</label>
+       <div class="form-group">
+        <label for="confirmPassword">confirm password</label>
         <input type="password"
         class="form-control"
-        id="pw2"
-        name="pw2"
-        ng-model="MC.pw2"
+        id="confirmPassword"
+        name="confirmPassword"
+        ng-model="user.confirmPassword"
         required
-        passwordCheckDirective="pw1">
+        compare-to="user.password">
+        <!-- <div ng-messages="form.confirmPassword.$error" ng-messages-include="messages.html"></div> -->
+        <div ng-message="form.confirmPassword.$error">Passwords do not make</div>
+
       </div>
 
-      <div class="msg-block" ng-show="userForm.$error">
-        <span class="msg-error" ng-show="userForm.pw2.$error.pwmatch">
-          Passwords don't match.
-        </span>
-      </div> -->
 
       <div class='form-group'>
         <input type="button" ng-disabled='!form.$valid' value='Submit' class="btn btn-primary" ng-click="MC.signup()">
       </div>
     </form>
-
-
-
 
 
 
