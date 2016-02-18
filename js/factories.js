@@ -1,5 +1,8 @@
 angular.module('app')
-	.factory('Password', function() {
+.factory('Password', function (){
+
+// }
+// function Password() {
 
 		function getStrength(pass) {
 	    var score = 0;
@@ -36,8 +39,9 @@ angular.module('app')
 			getStrength: function(pass) {
 				return getStrength(pass);
 			}
-		};
-	});
+	};
+});
+
 
 	angular.module('app')
 	.factory('authInterceptor', ['$rootScope', '$q','$window', authInterceptorFunc]);
