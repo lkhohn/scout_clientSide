@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" ng-app='app'>
   <head>
     <meta charset="utf-8">
@@ -14,11 +14,14 @@
 
   </head>
 
-  <body ng-controller='MainController as MC'>
+  <body ng-controller='MainController as MC'> -->
 
-    <nav-bar></nav-bar>
+    <!-- <nav-bar></nav-bar> -->
+<div ng-view>
 
-     <form name='form' novalidate>
+</div>
+
+     <form name='form' novalidate ng-controller='AddUserController as AUC'>
 
       <div class="form-group" ng-class="{ 'has-error': form.username.$invalid && form.username.$dirty, 'has-success': form.username.$valid && form.username.$dirty}">
         <label for="signupUsername">username</label>
@@ -36,7 +39,7 @@
         </div>
       </div>
 
-      <div class="form-group" ng-class="{'has-error': form.email.$invalid && form.email.$dirty, 'has-success': form.email.$valid && form.email.$dirty}">
+      <!-- <div class="form-group" ng-class="{'has-error': form.email.$invalid && form.email.$dirty, 'has-success': form.email.$valid && form.email.$dirty}">
         <label class="control-label">Email</label>
         <input type="email"
         class="form-control"
@@ -152,7 +155,7 @@
           <option>bitcoin</option>
           <option>stripe</option>
         </select>
-      </div>
+      </div> -->
 
 			<div class="form-group"
 				ng-class="{'has-error': isInputInvalid(form.password), 'has-success': isInputValid(form.password)}">
@@ -172,7 +175,7 @@
 
 
 
-       <div class="form-group">
+       <!-- <div class="form-group">
         <label for="confirmPassword">confirm password</label>
         <input type="password"
         class="form-control"
@@ -180,11 +183,11 @@
         name="confirmPassword"
         ng-model="user.confirmPassword"
         required
-        compare-to="user.password">
+        compare-to="user.password"> -->
         <!-- <div ng-messages="form.confirmPassword.$error" ng-messages-include="messages.html"></div> -->
-        <div ng-message="form.confirmPassword.$error">Passwords do not make</div>
+        <!-- <div ng-message="form.confirmPassword.$error">Passwords do not make</div> -->
 
-      </div>
+      <!-- </div> -->
 
 
       <div class='form-group'>
@@ -197,7 +200,7 @@
 
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.4.8/angular-route.js"></script>
@@ -207,7 +210,7 @@
     <script src="/js/services.js"></script>
     <script src="/js/directives.js"></script>
     <script src="/js/factories.js"></script>
-    <script src="/js/filters.js"></script>
+    <script src="/js/config.js"></script> -->
 
-  </body>
-</html>
+  <!-- </body> -->
+<!-- </html> -->

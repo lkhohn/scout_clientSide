@@ -1,0 +1,50 @@
+
+
+    <div class='container' ng-controller='NewScoutController as NSC'>
+
+
+      <form>
+        <input type='hidden' name='lat' id='lat'>
+        <input type='hidden' name='lng' id='lng'>
+      </form>
+
+
+      <form class="form-horizontal">
+
+        <div class="form-group">
+          <label for="requestedItem" class="col-sm-2 control-label">what do you need</label>
+          <textarea class="form-control" rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="requestedItemFee" class="col-sm-2 control-label">how much you will pay</label>
+          <input type="text" class="form-control" id="requestedItemFee">
+        </div>
+
+        <div class="form-group">
+          <label for="preferredPayment" class="col-sm-2 control-label">preferred payment method</label>
+          <select multiple class="form-control" id="paymentSelect">
+            <option>Cash</option>
+            <option>Bitcoin</option>
+            <option>Stripe</option>
+          </select>
+        </div>
+
+        <p>where are you located?</p>
+        <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+        <!-- //ToDo: try to remove the map and only autofill the address search -->
+        <!-- // https://developers.google.com/maps/documentation/javascript/places-autocomplete -->
+        <!-- https://stackoverflow.com/questions/12024629/bind-google-places-autocomplete-on-textbox-without-instantiating-a-google-map -->
+        <!-- <body onload="initialize()">
+               <div id="locationField">
+                 <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
+               </div>
+             </body> -->
+
+        <div id="map"></div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">submit</button>
+        </div>
+
+      </form>

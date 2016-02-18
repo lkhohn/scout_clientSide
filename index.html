@@ -16,11 +16,29 @@
 
   <body ng-controller='MainController as MC'>
 
-    <nav-bar></nav-bar>
+    <!-- <nav-bar></nav-bar> -->
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/#/">home</a></li>
+            <li><a href="http://localhost:8080/#/addScout">add a scout</a></li>
+            <li><a href="../views/findScout">find a scout</a></li>
+            <li><a href="/signup">sign up</a></li>
+            <li><a href="/signin">sign in</a></li>
+            <li><a href="/users/signout">sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
 
     <div class="jumbotron">
       <h1>Scout</h1>
     </div>
+
+    <div ng-view></div>
 
 
 
@@ -30,12 +48,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.4.8/angular-route.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/mainController.js"></script>
     <script src="/js/services.js"></script>
     <script src="/js/directives.js"></script>
-    <script src="/js/filters.js"></script>
+    <script src="/js/factories.js"></script>
+    <script src="/js/config.js"></script>
+
+
 
   </body>
 </html>
