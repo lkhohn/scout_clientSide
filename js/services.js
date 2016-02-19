@@ -1,11 +1,28 @@
 angular.module('app')
-.service('ScoutService', ['$http', ScoutService]);
+.service('ScoutService', ['$http', '$q', ScoutService]);
 
-function ScoutService($http){
+function ScoutService($http, $q){
 
   return {
-    getScout:function(){
-      return $http.get('http://localhost:3000/');
+    getScout:function(scout){
+      return $q(function(resolve, reject){
+        $http.post('http://localhost:3000/scout', scout)
+        .then(function sucess(response){
+          resolve(response);
+        }, function error(response){
+          console.error(response);
+        });
+      });
+    },
+    showAvailScouts: function(scout){
+      return $q(function(resolve, reject){
+        $http.get('http://localhost:3000/availScout', scout)
+        .then(function success(response){
+          resolve(response);
+        }, function error(response){
+          console.error(response);
+        });
+      });
     },
     getScoutDetails: function(id) {
       // console.log(id);

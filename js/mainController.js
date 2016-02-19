@@ -4,30 +4,35 @@ function MainController ($scope, $http) {
   var vm = this;
 }
 
+angular.module('app')
+.controller('LandingPageController', ['$scope', LandingPageController]);
+function LandingPageController(){
+  var vm = this;
+
+}
 
 
 angular.module('app')
 .controller('NewScoutController', ['$scope', 'ScoutService', NewScoutController]);
 function NewScoutController($scope, ScoutService) {
   var vm = this;
-  vm.title="add scout title test";
+  vm.initialize = initialize;
+  vm.autocomplete;
+  function initialize() {
+     autocomplete = new google.maps.places.Autocomplete(
+         /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+         { types: ['geocode'] });
+     google.maps.event.addListener(autocomplete, 'place_changed', function() {
+     });
+    }
+    vm.initialize();
+  }
 
-  // vm.submitScout = function () {
-  //   var scoutObj = {
-  //     item: vm.itemInput
-  //   };
-  //   ScoutService.postNewScout(scoutObj).then(function(data) {
-  //     console.log(data);
-  //   }, function(err) {
-  //     console.log('ERROR: ' + err);
-  //   });
-  // };
-}
 
 
 angular.module('app')
-.controller('SignupController', ['$scope', 'Password', 'addUserService', SignupController]);
-function SignupController($scope, Password, addUserService){
+.controller('SignupController', ['$scope','$location', 'Password', 'addUserService', SignupController]);
+function SignupController($scope, $location, Password, addUserService){
   var vm = this;
   this.regex = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 
@@ -62,20 +67,20 @@ function SignupController($scope, Password, addUserService){
 
   function signup(user) {
     addUserService.addUser(user).then(function(response){
-      console.log('new user created');
+      $location.path('/signin');
     });
   }
 }
 
 
 angular.module('app')
-.controller('SigninController', ['$scope', 'signinService', SigninController]);
-function SigninController($scope, signinService){
+.controller('SigninController', ['$scope', '$location', 'signinService', SigninController]);
+function SigninController($scope, $location, signinService){
   var vm = this;
   vm.signin = signin;
   function signin(user){
     signinService.signin(user).then(function(response){
-      console.log('user signed in!');
+      $location.path('/');
     });
   }
 }
