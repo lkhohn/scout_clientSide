@@ -25,7 +25,13 @@ function NewScoutController($scope, ScoutService) {
      google.maps.event.addListener(autocomplete, 'place_changed', function() {
      });
     }
-    vm.initialize();
+  vm.initialize();
+  vm.postNewScout = postNewScout;
+  function postNewScout(newScout){
+    ScoutService.postNewScout(newScout).then(function(response){
+      console.log('post new scout worked!');
+      });
+    }
   }
 
 

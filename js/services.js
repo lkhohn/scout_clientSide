@@ -29,7 +29,14 @@ function ScoutService($http, $q){
       return $http.get('http://localhost:3000/' + id);
     },
     postNewScout: function(scoutObj) {
-      return $http.post('http://localhost:3000/new', scoutObj);
+      return $q(function(resolve, reject){
+        $http.post('http://localhost:3000/new', scoutObj)
+        .then(function success(response){
+          resolve(response);
+        }, function error(response){
+          console.error(response);
+        });
+      });
     },
     deleteScout: function(id) {
       return $http.delete('http://localhost:3000/' + id);

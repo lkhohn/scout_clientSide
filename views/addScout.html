@@ -1,30 +1,10 @@
 <div class='container' ng-controller='NewScoutController as NSC'>
-  <form>
-    <input type='hidden' name='lat' id='lat'>
-    <input type='hidden' name='lng' id='lng'>
-  </form>
-
-
   <form class="form-horizontal">
 
-    <div class="form-group">
-      <label for="requestedItem" class="col-sm-2 control-label">what do you need</label>
-      <textarea class="form-control" rows="2"></textarea>
-    </div>
-
-    <div class="form-group">
-      <label for="requestedItemFee" class="col-sm-2 control-label">how much you will pay</label>
-      <input type="text" class="form-control" id="requestedItemFee">
-    </div>
-
-    <div class="form-group">
-      <label for="preferredPayment" class="col-sm-2 control-label">preferred payment method</label>
-      <select multiple class="form-control" id="paymentSelect">
-        <option>Cash</option>
-        <option>Bitcoin</option>
-        <option>Stripe</option>
-      </select>
-    </div>
+  <div class="form-group">
+    <label for="requestedItem" class="col-sm-2 control-label">what do you need</label>
+    <textarea class="form-control" rows="1"></textarea>
+  </div>
 
   <div class="form-group">
     <div id="locationField">
@@ -33,11 +13,23 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <label for="requestedItemFee" class="col-sm-2 control-label">how much you will pay</label>
+    <input type="text" class="form-control" id="requestedItemFee">
+  </div>
 
+  <div class="form-group">
+    <label for="preferredPayment" class="col-sm-2 control-label">preferred payment method</label>
+    <select multiple class="form-control" id="paymentSelect">
+      <option>Cash</option>
+      <option>Bitcoin</option>
+      <option>Stripe</option>
+    </select>
+  </div>
 
-
-    <div class="form-group">
-      <input type="button" class="btn btn-default" value="submit" ng-click="NSC.addScout(newScout)">
-    </div>
+  <div class="form-group">
+    <input type="button" class="btn btn-default" value="submit" ng-click="NSC.postNewScout(newScout)">
+  </div>
 
   </form>
+</div>
